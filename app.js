@@ -1,16 +1,20 @@
 'use strict';
-// let allEmployee=[];
+
+let formEvent = document.getElementById("formId");//getElementById form 
+let cardId=document.getElementById("cardSection");///getcardsectionid
+ let allEmployee = [];
 //////constructor/////
-function Employee(employeeID, fullName, department, level, imageURL, salary) {
-    this.employeeID = employeeID;
+function Employee( fullName, department, level, imageURL) {
+    this.employeeID = gergenerate();
     this.fullName = fullName;
     this.department = department;
     this.level = level;
     this.imageURL = imageURL;
-    this.salary=salary;
-    // allEmployee.push(this);
-    
+    this.salary = 0;
+    allEmployee.push(this);
+
 }
+//console.log(allEmployee);
 ////Function to calculate Random Number///
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -40,45 +44,85 @@ Employee.prototype.calculateSalary = function () {
 
     }
 }
-/////////////render prototype function ////////
-
-Employee.prototype.render = function () {
-    
-document.write("<h1>employee Name is:"+this.fullName+"The salary is :"+this.salary+"<h1>");
-
+////Function to generate a unique four digits employee id number///
+function gergenerate() {
+    let idNumber = Math.floor((Math.random() * 100) + 1);
+    return idNumber;
 }
 
-    ///////create object(create employees instances)////
-    let employee1 = new Employee(1000, "Ghazi Samer", "Administration", "Senior");
-    let employee2 = new Employee(1001, "Lana Ali", "Finance", "Senior");
-    let employee3 = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior");
-    let employee4 = new Employee(1003, "Safi Walid", "Administration", "midSenior");
-    let employee5 = new Employee(1004, "Omar Zaid", "Development", "Senior");
-    let employee6 = new Employee(1005, "Rana Saleh", "Development", "Junior");
-    let employee7 = new Employee(1006, "Hadi Ahmad", "Finance", "midSenior");
-    ////////call functions employee1/////
-    employee1.calculateSalary();
-    employee1.render();
-    /////////////call functions employee2/////
-    employee2.calculateSalary();
-    employee2.render();
-   ////////////call functions employee3/////
-    employee3.calculateSalary();
-    employee3.render();
-    /////////////call functions employee4/////
-    employee4.calculateSalary();
-    employee4.render();
-    /////////////call functions employee5/////
-    employee5.calculateSalary();
-    employee5.render();
-    /////////////call functions employee6/////
-    employee6.calculateSalary();
-    employee6.render();
-    /////////////call functions employee7/////
-    employee7.calculateSalary();
-    employee7.render();
+///////create object(create employees instances)////
+let employee1 = new Employee( "Ghazi Samer", "Administration", "Senior","./assets/Ghazi.jpg");
+let employee2 = new Employee( "Lana Ali", "Finance", "Senior","./assets/Lana.jpg");
+let employee3 = new Employee( "Tamara Ayoub", "Marketing", "Senior","./assets/Tamara.jpg");
+let employee4 = new Employee("Safi Walid", "Administration", "midSenior","./assets/Safi.jpg");
+let employee5 = new Employee( "Omar Zaid", "Development", "Senior","./assets/Omar.jpg");
+let employee6 = new Employee("Rana Saleh", "Development", "Junior","./assets/Rana.jpg");
+let employee7 = new Employee("Hadi Ahmad", "Finance", "midSenior","./assets/Hadi.jpg");
+
+////////////render prototype function (to creat a card for employee)////////
+Employee.prototype.render = function () {
+
+    let border=document.createElement('div');
+    border.style=" border:1px solid black;border-radius: 25%;width:50%; margin-left:25%; margin-right:25%";
+    cardId.appendChild(border);
    
-    
+    let verticalLine=document.createElement('div');
+    verticalLine.style=" border-left: 6px solid green;height:50%; margin-left:25%; ";
+    cardId.appendChild(verticalLine);
     
 
+    //create userImages in sectionCard//
+    let imageEmployee=document.createElement('img');
+    imageEmployee.src=this.imageURL;
+    cardId.appendChild(imageEmployee);
+
+    //create <h1> (employee name) in sectionCard//
+    let nameEmployee=document.createElement('h1');
+    nameEmployee.textContent="Name: "+this.fullName;
+    cardId.appendChild(nameEmployee);
+
+    //create <h4> (id number) in sectionCard//
+    let idEmployee=document.createElement('h4');
+    idEmployee.textContent="ID: "+this.employeeID;
+    cardId.appendChild(idEmployee);
+
+    // create <p> Department in sectionCard//
+    let departmentEmployee=document.createElement('p');
+    departmentEmployee.textContent="Department: "+this.department;
+    cardId.appendChild(departmentEmployee); 
+
+    // create <p>level in sectionCard//
+    let levelEmployee=document.createElement('p');
+    levelEmployee.textContent="Level: "+this.level;
+    cardId.appendChild(levelEmployee);
+    ///////////
     
+    
+}
+
+/////////Add event listener to get the data from the form/////
+formEvent.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {    
+    event.preventDefault();//default behaviour of submition the form refresh the page
+    let fullName = event.target.fullName.value;
+    let department = event.target.department.value;
+    let level = event.target.level.value;
+    let image = event.target.image.value;
+
+    let employee = new Employee( fullName, department, level,image);
+    employee.calculateSalary();
+    employee.render();
+}
+
+
+//////////function render all///
+function renderAll(){
+
+    for (let i = 0; i < allEmployee.length; i++) {
+        allEmployee[i].calculateSalary();
+        allEmployee[i].render();
+
+    }
+}
+renderAll();

@@ -1,42 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://kit.fontawesome.com/d69bdd2fdb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./about.css"> 
+    <link rel="stylesheet" href="./about.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>HR-management</title>
+    <link rel="icon" type="image/x-icon" href="assets/icon.png">
 </head>
 <body>
     <header>
-       
-        
+      
         <nav>
-     
           <div class="topnav">
+            <img src="./assets/icon.png" alt=""> <h1 >HR-<span>management</span></h1>
            
             <div class="navigation">
             <a href="index.html">Home</a>
-            <a href="accounting.html">About Us</a>
+            <a href="accounting.html">About us</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
           </div>
+          <div class="icons">
+            <div id="serach-btn" class="fas fa-search"></div>
+        
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+          
           </div>
+         
         </nav>
         
+        
   </header>
-  <main>
-
-    <script  src="app.js"></script> 
-    
+  <main >
+      
+  
+<!--Form section--> 
+ <section> 
+   <fieldset> 
+<form id="formId" >
+  <label for="fullName"><b>Full name:</label><br>
+  <input type="text" id="fullName" name="fname" ><br><br>
+  <label for="department ">Choose a Department :</label><br>
+  <select name="department" id="department">
+    <option value="administration">Administration</option>
+    <option value="marketing">Marketing</option>
+    <option value="development">Development</option>
+    <option value="finance">Finance</option>
+  </select><br><br>
+  <label for="level ">Choose a Level :</label><br>
+  <select name="level" id="level">
+    <option value="Junior">Junior</option>
+    <option value="midSenior">Mid-Senior</option>
+    <option value="senior">Senior</option>
+   
+  </select><br><br>
+  <label for="image">Image link:</label><br>
+  <input type="text" id="image" name="image" ><br><br>
+  <input type="submit" value="Submit" style="background-color: rgb(4, 62, 95);color: aliceblue; width:100px; margin-left: 50px;">
+</fieldset>
+</form>
+<hr>
+ <!--Cards section-->  
+ <section id="cardSection" >
+   
+  
+  
+</section>    
   </main>
   <footer>
-        
-    <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-twitter"></a>
-    <p>&copy; 2022 ASAC All right reserved
-        
-        
+    <h3 class="heading">
+      <span>contactUs</span>
+  </h3>
+    <div class="row">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d108338.1298817611!2d35.93994239999999!3d31.9455232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sjo!4v1650340900192!5m2!1sen!2sjo"
+       width="100" height="80" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
+  </div>
+    <div class="share">
+      <a href="" class="fab fa-facebook-f"></a>
+      <a href="" class="fab fa-twitter"></a>
+      <a href="" class="fab fa-instagram"></a>
+      <a href="" class="fab fa-linkedin"></a>
+      <a href="" class="fab fa-pinterest"></a>
+  </div>
+    <p style="color: black;">&copy; 2022 ASAC All right reserved
+    
+    
+     
 </footer>
-
+<script  src="app.js"></script> 
 </body>
 </html>
