@@ -1,31 +1,76 @@
 body {
     margin: 0;
+    height: 200px;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(183, 224, 248));
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
-  .topnav {
-     position: relative; 
-    overflow: hidden;
-  width: 100%;
- 
-  text-align: center;
-    background-color: rgb(116, 114, 114);
-   vertical-align: middle; 
+
+  .main{
+    /* display: flex; */
+  }
+  #cardSection{
+   
+    /* display: flex; */
+    /* grid-template-columns: repeat(3,300px);
+   gap:1rem;  */
    text-align: center;
-  justify-content: center;
+    
+  }
+  
+   
+  
+  img{
+   
+    max-width: 300px;
+    margin: auto;
+    
+    }
+
+    .formId{
+      position:fixed;
+    left: auto;
+    /* display:flex; */
+
+    }
+    input,select {
+            width: 200px;
+            height: 25px;
+            margin: 2px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    }
+
+  .topnav {
+     /* position: relative; 
+    overflow: hidden; */
+  width: 100%;
+  height: 100px;
+  
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(2, 66, 104));
+  
+    /* background-color: rgb(116, 114, 114); */
+   /* vertical-align:middle;  */
+   /* text-align: center; */
+  justify-content:flex-start;
   align-items: center;
-   display: flex;
+
+   display:flex;
+  justify-content:space-between;
+  align-items:center;
     
   }
   .topnav img{
   width:50px;
  height:50px;
- float: left;
+
+ 
   }
   
   .topnav a {
     margin-top: 10px;
-    color: #f2f2f2;
+    color: #0e0e0e;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -45,34 +90,37 @@ body {
     margin-top: 25px;
   }
   .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: rgb(39, 114, 128);
+    color: rgb(238, 231, 231);
   }
   
   .topnav a.active {
     background-color: #04AA6D;
     color: white;
   }
-  table, th, td {
-    border:1px solid black;
-  }
+
   footer {
     margin-top: 40%;
     text-align: center;
     padding: 3px;
-    background-color: rgb(116, 114, 114);
+    height: 200px;
+    
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(2, 66, 104));
     color: white;
   }
-  body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-
- 
+  
+* {box-sizing: border-box;} 
 
 h3{
   
   text-align: center;
 }
-.fa {
+
+/* table, th, td {
+    border:1px solid black;
+  } */
+  
+/* .fa {
     padding: 20px;
     font-size: 30px;
     width: 50px;
@@ -81,20 +129,21 @@ h3{
   }
   
   /* Add a hover effect if you want */
-  .fa:hover {
+  /* .fa:hover {
     opacity: 0.7;
-  }
-  
+  } 
+   */
   /* Set a specific color for each brand */
   
-  /* Facebook */
+  /* Facebook
   .fa-facebook {
     background: #3B5998;
     color: white;
   }
   
   /* Twitter */
-  .fa-twitter {
+  /* .fa-twitter {
     background: #55ACEE;
     color: white;
-  }
+  }  */
+
