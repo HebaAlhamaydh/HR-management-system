@@ -2,7 +2,7 @@
 
 let formEvent = document.getElementById("formId");//getElementById form 
 let cardId=document.getElementById("cardSection");///getcardsectionid
- let allEmployee = [];
+let allEmployee = [];
 //////constructor/////
 function Employee( fullName, department, level, imageURL) {
     this.employeeID = gergenerate();
@@ -31,13 +31,13 @@ Employee.prototype.calculateSalary = function () {
     else {
         if (this.level == "midSenior") {
             this.salary = getRndInteger(1000, 1500);
-            this.salary=this.salary-(this.salary*0.0075);
+            this.salary=this.salary-(this.salary*0.075);
         }
 
         else {
             if (this.level == "Junior") {
                 this.salary = getRndInteger(500, 1000);
-                this.salary=this.salary-(this.salary*0.0075);
+                this.salary=this.salary-(this.salary*0.075);
             }
         }
 
@@ -66,11 +66,6 @@ Employee.prototype.render = function () {
     border.style=" border:1px solid black;border-radius: 25%;width:50%; margin-left:25%; margin-right:25%";
     cardId.appendChild(border);
    
-    let verticalLine=document.createElement('div');
-    verticalLine.style=" border-left: 6px solid green;height:50%; margin-left:25%; ";
-    cardId.appendChild(verticalLine);
-    
-
     //create userImages in sectionCard//
     let imageEmployee=document.createElement('img');
     imageEmployee.src=this.imageURL;
@@ -94,10 +89,7 @@ Employee.prototype.render = function () {
     // create <p>level in sectionCard//
     let levelEmployee=document.createElement('p');
     levelEmployee.textContent="Level: "+this.level;
-    cardId.appendChild(levelEmployee);
-    ///////////
-    
-    
+    cardId.appendChild(levelEmployee);    
 }
 
 /////////Add event listener to get the data from the form/////
@@ -115,14 +107,11 @@ function handleSubmit(event) {
     employee.render();
 }
 
-
 //////////function render all///
 function renderAll(){
-
     for (let i = 0; i < allEmployee.length; i++) {
         allEmployee[i].calculateSalary();
         allEmployee[i].render();
-
     }
 }
 renderAll();

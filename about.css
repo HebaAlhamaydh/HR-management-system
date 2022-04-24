@@ -6,9 +6,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  .main{
-    /* display: flex; */
-  }
   #cardSection{
    
     /* display: flex; */
@@ -17,6 +14,7 @@ body {
    text-align: center;
     
   }
+  
   
    
   
@@ -98,8 +96,9 @@ body {
     background-color: #04AA6D;
     color: white;
   }
+  
 
-  footer {
+  /* footer {
     margin-top: 40%;
     text-align: center;
     padding: 3px;
@@ -107,7 +106,7 @@ body {
     
     background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(2, 66, 104));
     color: white;
-  }
+  } */
   
 * {box-sizing: border-box;} 
 
@@ -147,3 +146,45 @@ h3{
     color: white;
   }  */
 
+  footer {
+    display: flex;
+    font-size: 12px;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(2, 66, 104));
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  div {
+    margin: 10px;
+  }
+  .row{
+    margin-right:100px;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    width: 100%;
+    display: flex;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(2, 66, 104));
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+  }
+  .cardDiv {
+    width: 240px;
+    margin: 5px;
+    border: 1px solid #dddddd;
+    background-color: #85586f;
+  }
+  /* section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  } */
