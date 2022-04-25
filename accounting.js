@@ -1,6 +1,7 @@
 'use strict';
 let tableEmployee = document.getElementById("tableId");///getcardsectionid
-
+let tableFooterEmployee = document.getElementById("tfootId");
+tfootId
 let employeeArr = [];
 let ret = localStorage.getItem("employee");
  employeeArr = JSON.parse(ret);
@@ -53,9 +54,9 @@ function renderTable() {
     for (var i = 0; i < acountingArr.length; i++) {
 
 
-        // totalNumberOfEmployeesAll+=acountingArr[i].numberOfEmployees;
-        // totalAverageSalaryAll+=acountingArr[i].averageSalary;
-        // salaryAll+=acountingArr[i].totalSalary;
+        totalNumberOfEmployeesAll+=acountingArr[i].numberOfEmployees;
+        totalAverageSalaryAll+=acountingArr[i].averageSalary;
+        salaryAll+=acountingArr[i].totalSalary;
 
         let tr = document.createElement("tr");
         tableEmployee.appendChild(tr);
@@ -77,25 +78,30 @@ function renderTable() {
         let totalSalary = document.createElement("td");
         totalSalary.textContent = acountingArr[i].averageSalary ;
         tr.appendChild(totalSalary);
-
+    
+    }
         ////// table footer (total number of employees, total average ,total salary )for all departments
 
 
-        // let lastTr = document.createElement("tr");
-        // tableEmployee.appendChild(lastTr);
-    
-        // let totalNumberOfEmployees = document.createElement("td");
-        // totalNumberOfEmployees .textContent = totalNumberOfEmployeesAll ;
-        // lastTr.appendChild(totalNumberOfEmployees);
+        let lastTr = document.createElement("tr");
+        tableFooterEmployee.appendChild(lastTr);
 
-        // let totalAverageSalary = document.createElement("td");
-        // totalAverageSalary .textContent = totalAverageSalaryAll;
-        // lastTr.appendChild(totalAverageSalary );
+        let total = document.createElement("td");
+        total .textContent = "" ;
+        lastTr.appendChild(total);
 
-        // let totalSalaryAll = document.createElement("td");
-        // totalSalaryAll.textContent =salaryAll; 
-        // lastTr.appendChild(totalSalaryAll);
-    }
+        let totalNumberOfEmployees = document.createElement("td");
+        totalNumberOfEmployees .textContent = totalNumberOfEmployeesAll ;
+        lastTr.appendChild(totalNumberOfEmployees);
+
+        let totalAverageSalary = document.createElement("td");
+        totalAverageSalary .textContent = totalAverageSalaryAll;
+        lastTr.appendChild(totalAverageSalary );
+
+        let totalSalaryAll = document.createElement("td");
+        totalSalaryAll.textContent =salaryAll; 
+        lastTr.appendChild(totalSalaryAll);
+   
   
 
 }
