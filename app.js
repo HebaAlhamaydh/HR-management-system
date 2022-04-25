@@ -3,6 +3,7 @@
 let formEvent = document.getElementById("formId");//getElementById form 
 let cardId=document.getElementById("cardSection");///getcardsectionid
  let allEmployee = [];
+
 //////constructor/////
 function Employee( fullName, department, level, imageURL) {
     this.employeeID = gergenerate();
@@ -13,8 +14,9 @@ function Employee( fullName, department, level, imageURL) {
     this.salary = 0;
     allEmployee.push(this);
 
+
 }
-//console.log(allEmployee);
+
 ////Function to calculate Random Number///
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -59,6 +61,8 @@ let employee5 = new Employee( "Omar Zaid", "Development", "Senior","./assets/Oma
 let employee6 = new Employee("Rana Saleh", "Development", "Junior","./assets/Rana.jpg");
 let employee7 = new Employee("Hadi Ahmad", "Finance", "midSenior","./assets/Hadi.jpg");
 
+
+
 ////////////render prototype function (to creat a card for employee)////////
 Employee.prototype.render = function () {
 
@@ -75,6 +79,7 @@ Employee.prototype.render = function () {
     let imageEmployee=document.createElement('img');
     imageEmployee.src=this.imageURL;
     cardId.appendChild(imageEmployee);
+    console.log(this.imageURL);
 
     //create <h1> (employee name) in sectionCard//
     let nameEmployee=document.createElement('h1');
@@ -94,12 +99,8 @@ Employee.prototype.render = function () {
     // create <p>level in sectionCard//
     let levelEmployee=document.createElement('p');
     levelEmployee.textContent="Level: "+this.level;
-    cardId.appendChild(levelEmployee);
-    ///////////
-    
-    
+    cardId.appendChild(levelEmployee);    
 }
-
 /////////Add event listener to get the data from the form/////
 formEvent.addEventListener("submit", handleSubmit);
 
@@ -113,9 +114,31 @@ function handleSubmit(event) {
     let employee = new Employee( fullName, department, level,image);
     employee.calculateSalary();
     employee.render();
+    saveData(allEmployee);
+ 
 }
 
-
+///local storage
+function saveData(data)
+{
+    let stringFiyData=JSON.stringify(data);
+    localStorage.setItem("employee",stringFiyData);
+}
+function getData()
+{
+    let retriveData=localStorage.getItem("employee");
+    let arrayData=JSON.parse(retriveData);
+    if(arrayData!= null)
+    {  allEmployee=[];
+        for(let i=0;i<arrayData.length;i++)
+        {
+            new Employee(arrayData[i].fullName,arrayData[i].department,arrayData[i].level,arrayData[i].imageURL);
+            
+        }
+    }
+    renderAll();
+}
+getData();
 //////////function render all///
 function renderAll(){
 
@@ -125,4 +148,7 @@ function renderAll(){
 
     }
 }
-renderAll();
+// renderAll();
+
+
+
